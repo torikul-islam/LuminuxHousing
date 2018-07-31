@@ -29,5 +29,9 @@ namespace LuminuxHousing.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Plot> Plots { get; set; }
+        public DbSet<Size> Sizes { get; set; }  
+
     }
 }
