@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201807311604569_InitialModel.Designer.cs">
       <DependentUpon>201807311604569_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807311616339_PopulatePredefineTableWithData.cs" />
+    <Compile Include="Migrations\201807311616339_PopulatePredefineTableWithData.Designer.cs">
+      <DependentUpon>201807311616339_PopulatePredefineTableWithData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -294,6 +298,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807311604569_InitialModel.resx">
       <DependentUpon>201807311604569_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311616339_PopulatePredefineTableWithData.resx">
+      <DependentUpon>201807311616339_PopulatePredefineTableWithData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
