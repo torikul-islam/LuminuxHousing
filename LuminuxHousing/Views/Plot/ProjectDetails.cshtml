@@ -1,0 +1,56 @@
+﻿@model IEnumerable<LuminuxHousing.Models.Plot>
+@{
+    ViewBag.Title = "ProjectDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Project Details</h3>
+@Html.ActionLink("Create New","Create" ,null, new {@class="btn btn-primary"})
+<hr/>
+<table class="table table-responsive ">
+    <thead>
+    <tr class="success">
+        <th>Name</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Construction Start Date</th>
+        <th>Is Sold ?</th>
+        <th>Owner Name</th>
+        <th>Owner Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+       {
+           <tr>
+               <td>
+                   @Html.ActionLink(item.Name, "PlotDetails","Plot", new {id = item.Id},null)
+               </td>
+               <td>
+                   @Html.DisplayFor(m => item.Size.Value)
+               </td>
+               <td>
+                   @Html.DisplayFor(m => item.Price)
+               </td>
+               <td>
+                   @Html.DisplayFor(m => item.StartDate)
+               </td>
+               
+               <td>
+                   @Html.CheckBoxFor(m => item.Sold, new { @disabled = item.Sold })
+               </td>
+               <td>
+                   @Html.DisplayFor(m => item.OwnerName)
+               </td>
+               <td>
+                   @Html.DisplayFor(m => item.OwnerPhone)
+               </td>
+           </tr>
+       }
+
+
+    </tbody>
+    
+    
+
+</table>
