@@ -22,8 +22,3 @@ select,
 textarea {
     max-width: 280px;
 }
-@media screen and (min-width: 1280px) 
-.jumbotron {
-    padding-top: 38px;
-    padding-bottom: 18px;
-}
