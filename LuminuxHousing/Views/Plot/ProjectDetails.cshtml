@@ -1,56 +1,104 @@
-﻿@model IEnumerable<LuminuxHousing.Models.Plot>
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<LuminuxHousing.Models.Plot>
 @{
     ViewBag.Title = "ProjectDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h3>Project Details</h3>
-@Html.ActionLink("Create New","Create" ,null, new {@class="btn btn-primary"})
-<hr/>
-<table class="table table-responsive ">
+@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+<hr />
+<table id="plot" class="table table-bordered ">
     <thead>
-    <tr class="success">
-        <th>Name</th>
-        <th>Size</th>
-        <th>Price</th>
-        <th>Construction Start Date</th>
-        <th>Is Sold ?</th>
-        <th>Owner Name</th>
-        <th>Owner Phone</th>
-    </tr>
+        <tr class="success">
+            <th>Name</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Start Date</th>
+            <th>Is Sold ?</th>
+            <th>Owner Name</th>
+            <th>Owner Phone</th>
+            <th>Delete</th>
+        </tr>
     </thead>
-    <tbody>
-       @foreach (var item in Model)
-       {
-           <tr>
-               <td>
-                   @Html.ActionLink(item.Name, "PlotDetails","Plot", new {id = item.Id},null)
-               </td>
-               <td>
-                   @Html.DisplayFor(m => item.Size.Value)
-               </td>
-               <td>
-                   @Html.DisplayFor(m => item.Price)
-               </td>
-               <td>
-                   @Html.DisplayFor(m => item.StartDate)
-               </td>
-               
-               <td>
-                   @Html.CheckBoxFor(m => item.Sold, new { @disabled = item.Sold })
-               </td>
-               <td>
-                   @Html.DisplayFor(m => item.OwnerName)
-               </td>
-               <td>
-                   @Html.DisplayFor(m => item.OwnerPhone)
-               </td>
-           </tr>
-       }
-
-
-    </tbody>
-    
-    
-
+    <tbody></tbody>
 </table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            
+            var table = $('#plot').DataTable({
+                ajax: {
+                    url: "/Api/Plot",
+                    dataSrc: ""
+                },
+                "columns": [
+                    {
+                        data: "Name",
+                        render: function(data, type, plot) {
+                            return "<a href='/Plot/PlotDetails/" + plot.Id + "'>" + plot.Name + "</a>";
+                        }
+                    },
+                    { data: "Size.Value" },
+                    { data: "Price" },
+                    {
+                        data: "StartDate",
+                        render: function(data) {
+                            var date = new Date(data);
+                            var month = date.getMonth() + 1;
+                            return (month.length > 1 ? ("0" + month) : month ) +
+                                "/" +
+                                date.getDate() +
+                                "/" +
+                                date.getFullYear();
+                        }
+
+                    },
+                    {
+                        data: "Sold",
+                        render: function (data) {
+                            $('#plot input[type=checkbox]').attr('disabled', 'true');
+                            if (data == true) {
+                                return '<input type="checkbox" Checked value="' + data +'">';
+                            } else {
+                                return '<input type="checkbox"  value="' + data + '">';
+                            }
+                        }
+                    },
+                    { data: "OwnerName" },
+                    { data: "OwnerPhone" },
+                    {
+                        data: "Id",
+                        render: function(data) {
+                            return "<button class='js-delete btn btn-danger' data-plot-id=" + data + ">Delete</button>";
+                        }
+
+                    }
+                ]
+            });
+       
+                $("#plot").on("click",
+                    ".js-delete",
+                    function() {
+                        var button = $(this);
+
+                        bootbox.confirm("Are you sure want to delete this?",
+                            function (result) {
+                                if (result) {
+                                    $.ajax({
+                                        url: "/api/plot/" + button.attr("data-plot-id"),
+                                        method: "DELETE",
+                                        success: function() {
+                                            table.row(button.parents("tr")).remove().draw();
+                                        }
+                                    });
+                                }
+                            });
+                    });
+
+        });
+    </script>
+}

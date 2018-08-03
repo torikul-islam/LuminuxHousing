@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using LuminuxHousing.Models;
 using LuminuxHousing.ViewModel;
 using System.Data.Entity;
+using System.Net;
+using System.Web.Services;
 using System.Web.UI.WebControls;
 
 
@@ -60,8 +62,10 @@ namespace LuminuxHousing.Controllers
             return RedirectToAction("ProjectDetails", "Plot");
         }
 
+        
         public ActionResult ProjectDetails()
         {
+            
             var plots = _context.Plots.Include(c => c.Size).ToList();
             return View(plots);
         }
@@ -78,6 +82,22 @@ namespace LuminuxHousing.Controllers
                 Sizes = _context.Sizes.ToList()
             };
             return View(viewModel);
+        }
+
+        
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var deletePlot = _context.Plots.FirstOrDefault(p => p.Id == id);
+            if (deletePlot == null)
+                return HttpNotFound();
+
+            _context.Plots.Remove(deletePlot);
+            _context.SaveChanges();
+            return RedirectToAction("ProjectDetails", "Plot");
+
         }
     }
 }

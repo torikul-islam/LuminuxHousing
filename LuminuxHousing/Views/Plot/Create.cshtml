@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Plot.StartDate, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Plot.StartDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Plot.StartDate, new { @class = "form-control datepicker" })
         @Html.ValidationMessageFor(m => m.Plot.StartDate, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
@@ -61,8 +61,24 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn-primary">Save</button>
+            @Html.ActionLink("Calcel", "ProjectDetails", null, new { @class="btn btn-warning"})
         </div>
     </div>
 
 </div>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $(".datepicker").datepicker({
+                changeMonth: true,  
+                changeYear: true,
+                yearRange: "-100:+0",
+                maxDate: "0D"
+
+            });
+
+        });
+    </script>
 }

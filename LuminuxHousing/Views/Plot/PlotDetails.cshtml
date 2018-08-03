@@ -1,4 +1,5 @@
 ﻿
+@using LuminuxHousing.Models
 @model LuminuxHousing.ViewModel.CreatePlotViewModel
 @{
     ViewBag.Title = "Plot Details";
@@ -31,7 +32,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Plot.StartDate, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Plot.StartDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Plot.StartDate, "{0:MM/dd/yyyy}",new { @class = "form-control date-picker" })
         @Html.ValidationMessageFor(m => m.Plot.StartDate, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
@@ -62,10 +63,45 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" value="Create" class="btn btn-primary">Save</button>
-            @*<button type="submit" value="Delete" class="btn btn-danger">Delete</button>
-            @Html.ActionLink("Cancel", "ProjectDetails", null, new { @class = "btn btn-warning" })*@
+            @Html.ActionLink("Cancel", "ProjectDetails", null, new { @class = "btn btn-warning" })
         </div>
     </div>
 
 </div>
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $(".date-picker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+0",
+                maxDate: "0D"
+        });
+        });
+
+        @*$(document).ready(function () {
+            $('#Delete').on("click",
+                function(data, type, plot) {
+                    var parent = $(this).parent().parent();
+                    var render = "data-plot-id= " + data + "";
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("Delete", "Plot")",
+                        ajaxasync: true,
+                        data: {
+                            id: render
+                        },
+                        success: function(data) {
+                            alert("Success");
+                        },
+                        error: function(data) {
+                            alert("Error");
+                        }
+                    });
+                });
+
+        });*@
+    </script>
 }
