@@ -7,6 +7,8 @@ using LuminuxHousing.Models;
 using LuminuxHousing.ViewModel;
 using System.Data.Entity;
 using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http.Results;
 using System.Web.Services;
 using System.Web.UI.WebControls;
 
@@ -36,52 +38,67 @@ namespace LuminuxHousing.Controllers
                 Sizes = sizes
             };
             return View(viewModel);
+
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Plot plot)
+        public async Task<ActionResult> Create(Plot plot)
         {
-            if (plot.Id.Equals(0))
-                _context.Plots.Add(plot);
-            else
+            if (!ModelState.IsValid)
             {
-                var plotsInDb = _context.Plots.Single(p => p.Id == plot.Id);
-
-                plotsInDb.Name = plot.Name;
-                plotsInDb.SizeId = plot.Size.Id;
-                plotsInDb.Price = plot.Price;
-                plotsInDb.StartDate = plot.StartDate;
-                plotsInDb.Note = plot.Note;
-                plotsInDb.Sold = plot.Sold;
-                plotsInDb.OwnerName = plot.OwnerName;
-                plotsInDb.OwnerPhone = plot.OwnerPhone;
-
+                var viewModel = new CreatePlotViewModel
+                {
+                    Plot = plot,
+                    Sizes = _context.Sizes.ToList()
+                };
+                return View("Create", viewModel);
             }
-            _context.SaveChanges();
+            
+             _context.Plots.Add(plot);
+            await _context.SaveChangesAsync();
             return RedirectToAction("ProjectDetails", "Plot");
         }
 
         
-        public ActionResult ProjectDetails()
+        public ActionResult ProjectDetails(Plot plot)
         {
             
             var plots = _context.Plots.Include(c => c.Size).ToList();
             return View(plots);
         }
 
-        public ActionResult PlotDetails(int? id)
+        public ActionResult PlotDetails(int? id, Plot plot)
         {
             var plots = _context.Plots.Include(s =>s.Size).SingleOrDefault(c => c.Id == id);
-            if (plots == null)
+            if (plots == null || id.Equals(null))
                 return HttpNotFound();
+            
 
-            var viewModel = new CreatePlotViewModel
+            if (ModelState.IsValid && !plots.Id.Equals(null))
             {
-                Plot = plots,
-                Sizes = _context.Sizes.ToList()
-            };
-            return View(viewModel);
+
+                plots.Name = plot.Name;
+                plots.SizeId = plot.Size.Id;
+                plots.Price = plot.Price;
+                plots.StartDate = plot.StartDate;
+                plots.Note = plot.Note;
+                plots.Sold = plot.Sold;
+                plots.OwnerName = plot.OwnerName;
+                plots.OwnerPhone = plot.OwnerPhone;
+            }
+            else
+            {
+                var viewModelDetails = new CreatePlotViewModel
+                {
+                    Plot = plots,
+                    Sizes = _context.Sizes.ToList()
+                };
+                return View("PlotDetails", viewModelDetails);
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("ProjectDetails", "Plot");
         }
 
         

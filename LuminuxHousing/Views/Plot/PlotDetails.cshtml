@@ -1,74 +1,87 @@
-﻿
-@using LuminuxHousing.Models
-@model LuminuxHousing.ViewModel.CreatePlotViewModel
+﻿@model LuminuxHousing.ViewModel.CreatePlotViewModel
 @{
     ViewBag.Title = "Plot Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Plot Details</h2>
-@using (@Html.BeginForm("Create","Plot"))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Plot.Name, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Plot.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Plot.Name, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Sizes, new { @class = "control-label col-md-2" })
-        @Html.DropDownListFor(m => m.Plot.Size.Id, new SelectList(Model.Sizes, "Id", "Value", Model), "---Select---", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Sizes, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Plot.Price, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Plot.Price, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Plot.Price, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Plot.StartDate, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Plot.StartDate, "{0:MM/dd/yyyy}",new { @class = "form-control date-picker" })
-        @Html.ValidationMessageFor(m => m.Plot.StartDate, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Plot.Note, new { @class = "control-label col-md-2" })
-        @Html.TextAreaFor(m => m.Plot.Note, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Plot.Note, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Plot.Sold, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(m => m.Plot.Sold) Plot is Sold ?
-                @Html.ValidationMessageFor(m => m.Plot.Sold, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Plot.Name, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Plot.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Plot.Name, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Plot.OwnerName, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Plot.OwnerName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Plot.OwnerName, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Plot.OwnerPhone, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Plot.OwnerPhone, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Plot.OwnerPhone, "", new { @class = "text-danger" })
-    </div>
-    @Html.HiddenFor(p => p.Plot.Id)
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="submit" value="Create" class="btn btn-primary">Save</button>
-            @Html.ActionLink("Cancel", "ProjectDetails", null, new { @class = "btn btn-warning" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Sizes, "Plot Size", new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Plot.Size.Id, new SelectList(Model.Sizes, "Id", "Value", Model), "---Select---", new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Sizes, "", new {@class = "text-danger"})
+            </div>
         </div>
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Plot.Price, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Plot.Price, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Plot.Price, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Plot.StartDate, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Plot.StartDate, "{0:MM/dd/yyyy}", new {@class = "form-control date-picker"})
+                @Html.ValidationMessageFor(m => m.Plot.StartDate, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Plot.Note, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.Plot.Note, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Plot.Note, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Plot.Sold, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(m => m.Plot.Sold) Plot is Sold ?
+                    @Html.ValidationMessageFor(m => m.Plot.Sold, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Plot.OwnerName, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Plot.OwnerName ,new {@class = "form-control" , @readonly="true"})
+                @Html.ValidationMessageFor(m => m.Plot.OwnerName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Plot.OwnerPhone, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Plot.OwnerPhone, new { @class = "form-control" })E.g (010XXXXXXXX)
+                @Html.ValidationMessageFor(m => m.Plot.OwnerPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.HiddenFor(p => p.Plot.Id)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary">Save</button>
+                @Html.ActionLink("Cancel", "ProjectDetails", null, new {@class = "btn btn-warning"})
+            </div>
+        </div>
 
-</div>
+    </div>
 }
+
 @section scripts
 {
     <script>
@@ -78,30 +91,7 @@
                 changeYear: true,
                 yearRange: "-100:+0",
                 maxDate: "0D"
+            });
         });
-        });
-
-        @*$(document).ready(function () {
-            $('#Delete').on("click",
-                function(data, type, plot) {
-                    var parent = $(this).parent().parent();
-                    var render = "data-plot-id= " + data + "";
-                    $.ajax({
-                        type: "POST",
-                        url: "@Url.Action("Delete", "Plot")",
-                        ajaxasync: true,
-                        data: {
-                            id: render
-                        },
-                        success: function(data) {
-                            alert("Success");
-                        },
-                        error: function(data) {
-                            alert("Error");
-                        }
-                    });
-                });
-
-        });*@
     </script>
 }

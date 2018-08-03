@@ -229,6 +229,14 @@
     <Compile Include="Migrations\201808031518259_AddValidationInPlotModel.Designer.cs">
       <DependentUpon>201808031518259_AddValidationInPlotModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808031921294_addForeignKeyvalidations.cs" />
+    <Compile Include="Migrations\201808031921294_addForeignKeyvalidations.Designer.cs">
+      <DependentUpon>201808031921294_addForeignKeyvalidations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808032119260_AddRangeValidatorInModelPlot.cs" />
+    <Compile Include="Migrations\201808032119260_AddRangeValidatorInModelPlot.Designer.cs">
+      <DependentUpon>201808032119260_AddRangeValidatorInModelPlot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -609,6 +617,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808031518259_AddValidationInPlotModel.resx">
       <DependentUpon>201808031518259_AddValidationInPlotModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808031921294_addForeignKeyvalidations.resx">
+      <DependentUpon>201808031921294_addForeignKeyvalidations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808032119260_AddRangeValidatorInModelPlot.resx">
+      <DependentUpon>201808032119260_AddRangeValidatorInModelPlot.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

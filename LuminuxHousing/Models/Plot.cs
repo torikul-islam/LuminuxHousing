@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace LuminuxHousing.Models
 {
@@ -12,16 +13,19 @@ namespace LuminuxHousing.Models
         public int Id { get; set; }
 
         [Required]
+        [StringLength(25)]
         public string Name { get; set; }
         public Size Size { get; set; }
 
         [DisplayName("Plot Size")]
+        [Required]
         public int SizeId { get; set; }
 
         [Required]
         public int Price { get; set; }
 
         [Required]
+        [DisplayName("Construction Start Date")]
         public DateTime StartDate { get; set; }
 
         [Required]
@@ -31,10 +35,12 @@ namespace LuminuxHousing.Models
         public bool Sold { get; set; }
 
         [Required]
+        [DisplayName("Owner Name")]
         public string OwnerName { get; set; }
 
         [Required]
-        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+        [RegularExpression(@"\+?(88)?0?1[56789][0-9]{8}", ErrorMessage = "Invalid Phone No.")]
+        [DisplayName("Phone No.")]
         public string OwnerPhone { get; set; }
     }
 }
