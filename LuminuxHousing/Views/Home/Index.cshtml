@@ -1,31 +1,479 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<!--Property Listing-->
+<section class="property-listing">
+<div class="auto-container">
+<div class="mixitup-gallery">
+<!--Heading-->
+<div class="sec-title centered">
+    <h2>Latest Properties</h2>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<!--Filter-->
+<div class="filters gallery-filters">
+    <ul class="filter-tabs filter-btns clearfix">
+        <li class="active filter" data-role="button" data-filter="all">Any Type</li>
+        <li class="filter" data-role="button" data-filter=".for-sell">For Sell</li>
+        <li class="filter" data-role="button" data-filter=".for-rent">For Rent</li>
+    </ul>
+</div>
+
+<div class="filter-list row clearfix">
+
+<!--Default Property Box-->
+<div class="default-property-box mix all for-rent col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <div class="inner-box">
+        <div class="image-box">
+            <figure class="image">
+                <a href="#">
+                    <img src="~/Content/TemplateFile/images/resource/featured-image-1.jpg" alt="">
+                </a>
+            </figure>
+            <div class="property-price">$1,000 / Month</div>
+        </div>
+        <div class="lower-content">
+            <div class="rating-review">
+                <div class="ratings">
+                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                </div>
+                <div class="rev">(105 reviews)</div>
+            </div>
+            <div class="property-title">
+                <h3>
+                    <a href="property-details.html">146 Woodhaven Preserve</a>
+                </h3>
+                <div class="location"><span class="fa fa-map-marker"></span>&nbsp; 10037 North Douglas Hwy.</div>
+            </div>
+            <div class="prop-info clearfix">
+                <div class="prop-for">
+                    <span class="for">For rent</span><span class="area">1600 sq ft.</span>
+                </div>
+                <div class="link-box">
+                    <a href="#" class="theme-btn">View Details <span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+            <div class="property-meta">
+                <ul class="clearfix">
+                    <li><span class="icon fa fa-user"></span> Kelium Smith</li>
+                    <li><span class="icon fa fa-calendar"></span> 02 Days ago</li>
+                    <li class="options">
+                        <a href="#">
+                            <span class="fa fa-heart-o"></span>
+                        </a> &ensp;
+                        <a href="#">
+                            <span class="fa fa-share-alt"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
+
+<!--Default Property Box-->
+<div class="default-property-box mix all for-sell col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <div class="inner-box">
+        <div class="image-box">
+            <figure class="image">
+                <a href="#">
+                    <img src="~/Content/TemplateFile/images/resource/featured-image-2.jpg" alt="">
+                </a>
+            </figure>
+            <div class="property-price">$27,000</div>
+        </div>
+        <div class="lower-content">
+            <div class="rating-review">
+                <div class="ratings">
+                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                </div>
+                <div class="rev">(105 reviews)</div>
+            </div>
+            <div class="property-title">
+                <h3>
+                    <a href="#">146 Woodhaven Preserve</a>
+                </h3>
+                <div class="location"><span class="fa fa-map-marker"></span>&nbsp; 10037 North Douglas Hwy.</div>
+            </div>
+            <div class="prop-info clearfix">
+                <div class="prop-for">
+                    <span class="for">For sell</span><span class="area">1600 sq ft.</span>
+                </div>
+                <div class="link-box">
+                    <a href="#" class="theme-btn">View Details <span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+            <div class="property-meta">
+                <ul class="clearfix">
+                    <li><span class="icon fa fa-user"></span> Kelium Smith</li>
+                    <li><span class="icon fa fa-calendar"></span> 02 Days ago</li>
+                    <li class="options">
+                        <a href="#">
+                            <span class="fa fa-heart-o"></span>
+                        </a> &ensp;
+                        <a href="#">
+                            <span class="fa fa-share-alt"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Default Property Box-->
+<div class="default-property-box mix all for-rent col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <div class="inner-box">
+        <div class="image-box">
+            <figure class="image">
+                <a href="#">
+                    <img src="~/Content/TemplateFile/images/resource/featured-image-3.jpg" alt="">
+                </a>
+            </figure>
+            <div class="property-price">$15,00 / Month</div>
+        </div>
+        <div class="lower-content">
+            <div class="rating-review">
+                <div class="ratings">
+                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                </div>
+                <div class="rev">(105 reviews)</div>
+            </div>
+            <div class="property-title">
+                <h3>
+                    <a href="#">146 Woodhaven Preserve</a>
+                </h3>
+                <div class="location"><span class="fa fa-map-marker"></span>&nbsp; 10037 North Douglas Hwy.</div>
+            </div>
+            <div class="prop-info clearfix">
+                <div class="prop-for">
+                    <span class="for">For rent</span><span class="area">1600 sq ft.</span>
+                </div>
+                <div class="link-box">
+                    <a href="#" class="theme-btn">View Details <span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+            <div class="property-meta">
+                <ul class="clearfix">
+                    <li><span class="icon fa fa-user"></span> Kelium Smith</li>
+                    <li><span class="icon fa fa-calendar"></span> 02 Days ago</li>
+                    <li class="options">
+                        <a href="#">
+                            <span class="fa fa-heart-o"></span>
+                        </a> &ensp;
+                        <a href="#">
+                            <span class="fa fa-share-alt"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Default Property Box-->
+<div class="default-property-box mix all for-sell col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <div class="inner-box">
+        <div class="image-box">
+            <figure class="image">
+                <a href="#">
+                    <img src="~/Content/TemplateFile/images/resource/featured-image-4.jpg" alt="">
+                </a>
+            </figure>
+            <div class="property-price">$27,000</div>
+        </div>
+        <div class="lower-content">
+            <div class="rating-review">
+                <div class="ratings">
+                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                </div>
+                <div class="rev">(105 reviews)</div>
+            </div>
+            <div class="property-title">
+                <h3>
+                    <a href="#">146 Woodhaven Preserve</a>
+                </h3>
+                <div class="location"><span class="fa fa-map-marker"></span>&nbsp; 10037 North Douglas Hwy.</div>
+            </div>
+            <div class="prop-info clearfix">
+                <div class="prop-for">
+                    <span class="for">For sell</span><span class="area">1600 sq ft.</span>
+                </div>
+                <div class="link-box">
+                    <a href="#" class="theme-btn">View Details <span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+            <div class="property-meta">
+                <ul class="clearfix">
+                    <li><span class="icon fa fa-user"></span> Kelium Smith</li>
+                    <li><span class="icon fa fa-calendar"></span> 02 Days ago</li>
+                    <li class="options">
+                        <a href="#">
+                            <span class="fa fa-heart-o"></span>
+                        </a> &ensp;
+                        <a href="#">
+                            <span class="fa fa-share-alt"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Default Property Box-->
+<div class="default-property-box mix all for-rent col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <div class="inner-box">
+        <div class="image-box">
+            <figure class="image">
+                <a href="property-details.html">
+                    <img src="~/Content/TemplateFile/images/resource/featured-image-5.jpg" alt="">
+                </a>
+            </figure>
+            <div class="property-price">$800 / Month</div>
+        </div>
+        <div class="lower-content">
+            <div class="rating-review">
+                <div class="ratings">
+                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                </div>
+                <div class="rev">(105 reviews)</div>
+            </div>
+            <div class="property-title">
+                <h3>
+                    <a href="property-details.html">146 Woodhaven Preserve</a>
+                </h3>
+                <div class="location"><span class="fa fa-map-marker"></span>&nbsp; 10037 North Douglas Hwy.</div>
+            </div>
+            <div class="prop-info clearfix">
+                <div class="prop-for">
+                    <span class="for">For rent</span><span class="area">1600 sq ft.</span>
+                </div>
+                <div class="link-box">
+                    <a href="property-details.html" class="theme-btn">View Details <span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+            <div class="property-meta">
+                <ul class="clearfix">
+                    <li><span class="icon fa fa-user"></span> Kelium Smith</li>
+                    <li><span class="icon fa fa-calendar"></span> 02 Days ago</li>
+                    <li class="options">
+                        <a href="#">
+                            <span class="fa fa-heart-o"></span>
+                        </a> &ensp;
+                        <a href="#">
+                            <span class="fa fa-share-alt"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Default Property Box-->
+<div class="default-property-box mix all for-sell col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <div class="inner-box">
+        <div class="image-box">
+            <figure class="image">
+                <a href="property-details.html">
+                    <img src="~/Content/TemplateFile/images/resource/featured-image-6.jpg" alt="">
+                </a>
+            </figure>
+            <div class="property-price">$27,000</div>
+        </div>
+        <div class="lower-content">
+            <div class="rating-review">
+                <div class="ratings">
+                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                </div>
+                <div class="rev">(105 reviews)</div>
+            </div>
+            <div class="property-title">
+                <h3>
+                    <a href="property-details.html">146 Woodhaven Preserve</a>
+                </h3>
+                <div class="location"><span class="fa fa-map-marker"></span>&nbsp; 10037 North Douglas Hwy.</div>
+            </div>
+            <div class="prop-info clearfix">
+                <div class="prop-for">
+                    <span class="for">For sell</span><span class="area">1600 sq ft.</span>
+                </div>
+                <div class="link-box">
+                    <a href="property-details.html" class="theme-btn">View Details <span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+            <div class="property-meta">
+                <ul class="clearfix">
+                    <li><span class="icon fa fa-user"></span> Kelium Smith</li>
+                    <li><span class="icon fa fa-calendar"></span> 02 Days ago</li>
+                    <li class="options">
+                        <a href="#">
+                            <span class="fa fa-heart-o"></span>
+                        </a> &ensp;
+                        <a href="#">
+                            <span class="fa fa-share-alt"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- End Property Listing-->
+
+<!--Popular Places-->
+<section class="popular-places">
+    <div class="auto-container">
+        <!--Heading-->
+        <div class="sec-title centered">
+            <h2>Popular Places</h2>
+        </div>
+
+        <div class="popular-place-carousel owl-theme owl-carousel">
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-7.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>Las Vegas</h4>
+                            <div class="count">24 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-8.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>New York</h4>
+                            <div class="count">11 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-9.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>Las Angeles</h4>
+                            <div class="count">20 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-7.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>Las Vegas</h4>
+                            <div class="count">24 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-8.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>New York</h4>
+                            <div class="count">11 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-9.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>Las Angeles</h4>
+                            <div class="count">20 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-7.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>Las Vegas</h4>
+                            <div class="count">24 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-8.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>New York</h4>
+                            <div class="count">11 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+            <!--Popular Place Box-->
+            <div class="popular-place-box">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <img src="~/Content/TemplateFile/images/resource/featured-image-9.jpg" alt="">
+                        </figure>
+                        <div class="overlay-content">
+                            <h4>Las Angeles</h4>
+                            <div class="count">20 Properties</div>
+                        </div>
+                    </div>
+                    <a href="#" class="link-overlay"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Popular Places-->
+
