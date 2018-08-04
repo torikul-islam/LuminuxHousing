@@ -3981,7 +3981,7 @@ img{
 	color:#696969;
 	font-size:14px;
 	font-weight:400;
-    display: inline-block;
+	display: inline-block;
 	transition:all 0.3s ease;
 	-moz-transition:all 0.3s ease;
 	-webkit-transition:all 0.3s ease;
@@ -4064,9 +4064,9 @@ img{
 
  ***/
  
-.contact-section{
-	position:relative;
-	padding:110px 0px; 
+.contact-section {
+    position: relative;
+    padding: 30px 0px;
 }
 
 .contact-section .outer-box{

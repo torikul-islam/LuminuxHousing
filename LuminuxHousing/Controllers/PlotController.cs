@@ -79,7 +79,7 @@ namespace LuminuxHousing.Controllers
             {
 
                 plots.Name = plot.Name;
-                plots.SizeId = plot.Size.Id;
+                plots.SizeId = plot.SizeId;
                 plots.Price = plot.Price;
                 plots.StartDate = plot.StartDate;
                 plots.Note = plot.Note;

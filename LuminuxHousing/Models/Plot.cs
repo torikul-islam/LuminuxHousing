@@ -15,6 +15,7 @@ namespace LuminuxHousing.Models
         [Required]
         [StringLength(25)]
         public string Name { get; set; }
+
         public Size Size { get; set; }
 
         [DisplayName("Plot Size")]

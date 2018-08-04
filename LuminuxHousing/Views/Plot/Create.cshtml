@@ -73,7 +73,8 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Plot.OwnerPhone, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Plot.OwnerPhone, new { @class = "form-control" }) E.g (010XXXXXXXX)
+            E.g (017XXXXXXXX)
+            @Html.TextBoxFor(m => m.Plot.OwnerPhone, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Plot.OwnerPhone, "", new { @class = "text-danger" })
         </div>
     </div>
