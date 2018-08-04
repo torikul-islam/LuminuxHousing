@@ -29,7 +29,7 @@ namespace LuminuxHousing.Controllers
             _context.Dispose();
         }
 
-
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create()
         {
             var sizes = _context.Sizes.ToList();
@@ -43,6 +43,7 @@ namespace LuminuxHousing.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public async Task<ActionResult> Create(Plot plot)
         {
             if (!ModelState.IsValid)
@@ -63,11 +64,16 @@ namespace LuminuxHousing.Controllers
         
         public ActionResult ProjectDetails(Plot plot)
         {
-            
             var plots = _context.Plots.Include(c => c.Size).ToList();
-            return View(plots);
+            if (User.IsInRole(RoleName.Admin))
+            {
+                return View("ProjectDetails");
+            }
+            
+            return View("UserProjectDetails");
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult PlotDetails(int? id, Plot plot)
         {
             var plots = _context.Plots.Include(s =>s.Size).SingleOrDefault(c => c.Id == id);
@@ -101,7 +107,7 @@ namespace LuminuxHousing.Controllers
             return RedirectToAction("ProjectDetails", "Plot");
         }
 
-        
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Delete(int? id)
         {
             if (id == null)

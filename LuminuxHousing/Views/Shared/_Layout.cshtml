@@ -41,13 +41,14 @@
     </div>
     <div class="container body-content jumbotron">
         @RenderBody()
-        
-        <hr/>
-    
+
+        <hr />
+
         <footer class="main-footer with-padding-top">
             @Html.Partial("_FooterPartial")
         </footer>
     </div>
+
     <script src="~/Content/TemplateFile/js/jquery.js"></script>
     <script src="~/Content/TemplateFile/js/bootstrap.min.js"></script>
     <script src="~/Content/TemplateFile/js/jquery-ui.js"></script>
@@ -62,6 +63,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", false)
-
 </body>
 </html>

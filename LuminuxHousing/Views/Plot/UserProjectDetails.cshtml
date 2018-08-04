@@ -1,0 +1,77 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<LuminuxHousing.Models.Plot>
+@{
+    ViewBag.Title = "ProjectDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Project Details</h3>
+<br/>
+<br/>
+<table id="plot" class="table table-bordered ">
+    <thead>
+        <tr class="success">
+            <th>Name</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Start Date</th>
+            <th>Is Sold ?</th>
+            <th>Owner Name</th>
+            <th>Owner Phone</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            
+            var table = $('#plot').DataTable({
+                ajax: {
+                    url: "/Api/Plot",
+                    dataSrc: ""
+                },
+                "columns": [
+                    {
+                        data: "Name",
+                        
+                    },
+                    { data: "Size.Value" },
+                    { data: "Price" },
+                    {
+                        data: "StartDate",
+                        render: function(data) {
+                            var date = new Date(data);
+                            var month = date.getMonth() + 1;
+                            return (month.length > 1 ? ("0" + month) : month ) +
+                                "/" +
+                                date.getDate() +
+                                "/" +
+                                date.getFullYear();
+                        }
+
+                    },
+                    {
+                        data: "Sold",
+                        render: function (data) {
+                            $('#plot input[type=checkbox]').attr('disabled', 'true');
+                            if (data == true) {
+                                return '<input type="checkbox" Checked value="' + data +'">';
+                            } else {
+                                return '<input type="checkbox"  value="' + data + '">';
+                            }
+                        }
+                    },
+                    { data: "OwnerName" },
+                    { data: "OwnerPhone" }
+                    
+                ]
+            });
+       
+               
+        });
+    </script>
+}

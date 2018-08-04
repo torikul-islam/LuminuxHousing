@@ -237,11 +237,16 @@
     <Compile Include="Migrations\201808032119260_AddRangeValidatorInModelPlot.Designer.cs">
       <DependentUpon>201808032119260_AddRangeValidatorInModelPlot.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808040957243_SeedUsers.cs" />
+    <Compile Include="Migrations\201808040957243_SeedUsers.Designer.cs">
+      <DependentUpon>201808040957243_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Plot.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -729,6 +734,7 @@
     <Content Include="Views\Plot\PlotDetails.cshtml" />
     <Content Include="Views\Plot\Delete.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Plot\UserProjectDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -761,6 +767,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808032119260_AddRangeValidatorInModelPlot.resx">
       <DependentUpon>201808032119260_AddRangeValidatorInModelPlot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808040957243_SeedUsers.resx">
+      <DependentUpon>201808040957243_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
