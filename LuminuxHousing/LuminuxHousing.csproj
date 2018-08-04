@@ -241,6 +241,10 @@
     <Compile Include="Migrations\201808040957243_SeedUsers.Designer.cs">
       <DependentUpon>201808040957243_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808041259263_AddSeedToPlotModel.cs" />
+    <Compile Include="Migrations\201808041259263_AddSeedToPlotModel.Designer.cs">
+      <DependentUpon>201808041259263_AddSeedToPlotModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -606,6 +610,7 @@
     <Content Include="Content\TemplateFile\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\TemplateFile\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\TemplateFile\fonts\glyphicons-halflings-regulard41d.eot" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -770,6 +775,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808040957243_SeedUsers.resx">
       <DependentUpon>201808040957243_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041259263_AddSeedToPlotModel.resx">
+      <DependentUpon>201808041259263_AddSeedToPlotModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
