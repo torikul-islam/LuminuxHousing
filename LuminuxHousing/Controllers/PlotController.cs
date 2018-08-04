@@ -77,8 +77,8 @@ namespace LuminuxHousing.Controllers
         public ActionResult PlotDetails(int? id, Plot plot)
         {
             var plots = _context.Plots.Include(s =>s.Size).SingleOrDefault(c => c.Id == id);
-            if (plots == null || id.Equals(null))
-                return HttpNotFound();
+            if (plots == null)
+                throw new Exception("404.html");
             
 
             if (ModelState.IsValid && !plots.Id.Equals(null))
@@ -107,20 +107,6 @@ namespace LuminuxHousing.Controllers
             return RedirectToAction("ProjectDetails", "Plot");
         }
 
-        [Authorize(Roles = RoleName.Admin)]
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-            var deletePlot = _context.Plots.FirstOrDefault(p => p.Id == id);
-            if (deletePlot == null)
-                return HttpNotFound();
-
-            _context.Plots.Remove(deletePlot);
-            _context.SaveChanges();
-            return RedirectToAction("ProjectDetails", "Plot");
-
-        }
+       
     }
 }

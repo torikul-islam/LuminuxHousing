@@ -6,16 +6,17 @@ using System.Web.Mvc;
 
 namespace LuminuxHousing.Controllers
 {
-    
+    [AllowAnonymous]
     public class HomeController : Controller
     {
-        [AllowAnonymous]
+        
         public ActionResult Index()
         {
+            
             return View();
         }
 
-        [Authorize]
+        
         public ActionResult About()
         {
             ViewBag.Message = "About Us";

@@ -39,9 +39,7 @@ namespace LuminuxHousing.Controllers.Api
         {
             var plot =  _context.Plots.Include(p => p.Size).SingleOrDefault(pId =>pId.Id == id);
             if (plot == null)
-            {
-                return NotFound();
-            }
+                throw new Exception();
 
             return Ok(plot);
         }
@@ -55,9 +53,7 @@ namespace LuminuxHousing.Controllers.Api
             }
 
             if (id != plot.Id)
-            {
-                return BadRequest();
-            }
+                throw new Exception();
 
             _context.Entry(plot).State = EntityState.Modified;
 
@@ -94,7 +90,7 @@ namespace LuminuxHousing.Controllers.Api
             var plot = _context.Plots.SingleOrDefault(p => p.Id == id);
             if (plot == null)
             {
-                return NotFound();
+                throw new Exception();
             }
             _context.Plots.Remove(plot);
             _context.SaveChanges();

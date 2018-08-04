@@ -25,6 +25,8 @@ INSERT INTO [dbo].[Plots] ( [Name], [SizeId], [Price], [StartDate], [Note], [Sol
 
 
 
+
+
 ");
         }
         

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
-using LuminuxHousing.Dtos;
+using LuminuxHousing.DTOs;
 using LuminuxHousing.Models;
 
 namespace LuminuxHousing.App_Start
